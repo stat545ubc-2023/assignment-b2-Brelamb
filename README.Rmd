@@ -1,0 +1,65 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# namecount
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of the **getNamesCount** function from the **namecount** package is to provide a quick and easy way to count the number of observations in a categorical column of your data set that are less than a given numeric value of a numeric column. 
+
+This is a quick and easy way to better understand the types of observations in your data set without having to write out a long function yourself. 
+
+## Installation
+
+You can install the development version of namecount from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("stat545ubc-2023/namecount")
+```
+
+## Example 1
+
+This is a basic example using a basic data set: 
+
+```{r example}
+# calling the 'namecount' package
+library(namecount)
+# basic sample data frame containing numeric and categorical columns 
+dfSample <- data.frame(
+fruit = c("apple", "banana", "cherry", "coconut", "dragonfruit"),
+numFruit = c(17, 90, 35, 49, 102))
+# using the 'getNamesCount' function 
+answer1.0 <- getNamesCount(dfSample, fruit, numFruit, 50)
+
+print(answer1.0)
+```
+## Example 2
+
+Looking at the summary statistics from the **penguins** data set from the *palmerpenguins* package you can see that the mean bill length collected in the data is 43.92mm. 
+```{r palmerpenguins}
+sumP <- summary(palmerpenguins::penguins)
+
+print(sumP)
+```
+Now I would like to know how many observations there are in the data set for species of penguins with a bill length below the mean collected. This is where I would use the **namecount** function:
+```{r}
+library(namecount)
+answer2.0 <- getNamesCount(palmerpenguins::penguins, species, bill_length_mm, 43.92)
+
+print(answer2.0)
+```
+The **getNameCount** function produced a number, this number is the total species observations that have a corresponding bill length measurement below the *numericalValue* that was set at the mean (43.92mm) 
