@@ -83,7 +83,7 @@ print(answer2.0)
 #> [1] 167
 ```
 
-The **getNameCount** function produced a number, this number is the
+The **getNamesCount** function produced a number, this number is the
 total species observations that have a corresponding bill length
 measurement below the *numericalValue* that was set at the mean
 (43.92mm)
