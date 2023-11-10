@@ -1,0 +1,16 @@
+Package: namecount
+Title: Count Names That Fall Within a Numerical Value Range
+Version: 0.1.0
+Authors@R: 
+    person("Bre", "Lambert", , "blambert@eoas.ubc.ca", role = c("aut", "cre"))
+Description: The 'namecount' package contains 'getNamesCount', a function for when you would like to know the number of a catergorical columns oberserations that fall within a specified numerical range of a numerical column (less than the given number).You provide the data, specify the categorical column, numerical column and the numberical range and watch the function do all of the quick counting work for you.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+    dplyr,
+    palmerpenguins
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
