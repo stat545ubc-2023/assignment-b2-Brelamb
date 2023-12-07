@@ -6,14 +6,13 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of the **getNamesCount** function from the **namecount**
-package is to provide a quick and easy way to count the number of
-observations in a categorical column of your data set that are less than
-a given numeric value of a numeric column.
-
-This is a quick and easy way to better understand the types of
-observations in your data set without having to write out a long
-function yourself.
+The **namecount** package contains 5 functions:**getNamesCount**,
+**getNamesStart**, **getNamesUnique**, **countStart**, and
+**countNamesUnique**. These functions can be used to count the number of
+names in a specified column or retrieve names from a specified
+column.The goal of the **getNamesCount** package is to provide a quick
+and easy way to filter your to better understand your data set without
+having to write out a long function yourself.
 
 ## Installation
 
@@ -25,9 +24,10 @@ You can install the development version of namecount from
 devtools::install_github("stat545ubc-2023/namecount")
 ```
 
-## Example 1
+## getNamesCount - Example 1
 
-This is a basic example using a basic data set:
+This is a basic example of the `getNamesCount` function from the
+**namecount** package using a basic data set:
 
 ``` r
 # calling the 'namecount' package
@@ -43,7 +43,7 @@ print(answer1.0)
 #> [1] 3
 ```
 
-## Example 2
+## getNamesCount - Example 2
 
 Looking at the summary statistics from the **penguins** data set from
 the *palmerpenguins* package you can see that the mean bill length
@@ -77,6 +77,7 @@ This is where I would use the **namecount** function:
 
 ``` r
 library(namecount)
+
 answer2.0 <- getNamesCount(palmerpenguins::penguins, species, bill_length_mm, 43.92)
 
 print(answer2.0)
@@ -87,3 +88,17 @@ The **getNamesCount** function produced a number, this number is the
 total species observations that have a corresponding bill length
 measurement below the *numericalValue* that was set at the mean
 (43.92mm)
+
+### Conclusion
+
+If you would like to see more examples of usage for the **namecount**
+package please refer to the package vignette or function help pages.
+
+## References
+
+The source of the **penguins** data set from the `palmerpenguins` R
+package used here:
+
+Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago
+(Antarctica) penguin data. <doi:10.5281/zenodo.3960218>, R package
+version 0.1.0, <https://allisonhorst.github.io/palmerpenguins/>.
