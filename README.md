@@ -94,6 +94,10 @@ measurement below the *numericalValue* that was set at the mean
 If you would like to see more examples of usage for the **namecount**
 package please refer to the package vignette or function help pages.
 
+## Website
+
+[Link to pkgdown website](https://stat545ubc-2023.github.io/namecount/)
+
 ## References
 
 The source of the **penguins** data set from the `palmerpenguins` R
