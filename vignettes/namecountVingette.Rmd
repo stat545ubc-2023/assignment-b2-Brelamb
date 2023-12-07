@@ -1,0 +1,120 @@
+---
+title: "namecountVingette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{namecountVingette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+The `namecount` package provides functionality to count names and filter names that meet specified criteria within a dataset. This vignette introduces the main functions and provides example usage.
+
+
+## Installation
+
+You can install the development version of namecount from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("stat545ubc-2023/namecount")
+```
+
+## Package Functions 
+
+The **namecount** package includes the following functions:
+
+1. `countNamesUnique`: Count the number of unique values in a categorical column.
+2. `countStart`: Count the number of categorical observations starting with a specific letter.
+3.  `getNamesCount`: Count names that fall within a numerical value range.
+4.  `getNamesStart`: Find unique variables in a column starting with a specific letter.
+5.  `getNamesUnique`: Display all unique names within a categorical column.
+
+## Examples
+
+### countNamesUnique Function
+
+The **countNamesUnique** function can be used to count the number of unique names found in the categorical column in the data set 
+
+```{r}
+library(namecount)
+library(palmerpenguins)
+
+# Count unique species in the penguins dataset
+
+countSpecies <- countNamesUnique(palmerpenguins::penguins, "species")
+
+print(countSpecies)
+```
+
+### countStart Function
+
+The **countStart** function can be used to count the number of observations in a categorical column that start with a specified letter.
+
+```{r}
+# For the example here we will try to count names that start with the letter 'g'
+
+dfSample <- data.frame(
+fruit = c("apple", "banana", "cherry", "coconut", "dragonfruit"),
+numFruit = c(17, 90, 35, 49, 102))
+
+cNameCount <- countStart(dfSample, "fruit", "g")
+
+print(cNameCount)
+```
+
+
+### getNamesCount Function
+
+The **getNamesCount** can be used to count names from a specified categorical colunm that fall within a numerical value range.
+
+```{r}
+# Count penguins with bill length less than 300 mm
+
+countBills <- getNamesCount(palmerpenguins::penguins, species, bill_length_mm, 35)
+
+print(countBills)
+```
+
+### getNamesUnique Function
+
+The **getNamesUnique** function can be used to identify the unique observation names in a specified column. 
+
+```{r}
+# Display unique island names from the penguins dataset
+
+uniqueIslands <- getNamesUnique(palmerpenguins::penguins, "island")
+
+print(uniqueIslands)
+```
+
+### getNamesStart Function
+
+The **getNamesStart** function can be used to retrieve the names in a specified column that start with a given letter.
+
+```{r}
+# Get the names of observations from the island colunm that start with the letter 'T'
+
+tNames <- getNamesStart(palmerpenguins::penguins, "island", "T")
+
+print(tNames)
+```
+
+## Conclusion
+
+The **namecount** package provides a set of functions for working with categorical data, making it easier to count, filter, and explore unique names within datasets.
+
+If you are looking for more details and additional functionalities for the functions in the **namecount** package, refer to the package documentation and function help pages.
+
+## References 
+
+The source of the **penguins** data set from the `palmerpenguins` R package used here: 
+
+Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. doi:10.5281/zenodo.3960218, R package version 0.1.0, https://allisonhorst.github.io/palmerpenguins/.
