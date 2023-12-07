@@ -1,16 +1,20 @@
 Package: namecount
-Title: Count Names That Fall Within a Numerical Value Range
-Version: 0.1.0
+Title: Count Names and Filter Names That Meet a Specified Criteria
+Version: 0.1.1
 Authors@R: 
     person("Bre", "Lambert", , "blambert@eoas.ubc.ca", role = c("aut", "cre"))
-Description: The 'namecount' package contains 'getNamesCount', a function for when you would like to know the number of a catergorical columns oberserations that fall within a specified numerical range of a numerical column (less than the given number).You provide the data, specify the categorical column, numerical column and the numberical range and watch the function do all of the quick counting work for you.
+Description: The 'namecount' package contains 5 functions:'getNamesCount, 'getNamesStart', 'getNamesUnique', 'countStart', and 'countNamesUnique'. These functions can be used to count the number of names in a specified column or retrieve names from a specified column.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
     dplyr,
-    palmerpenguins
+    palmerpenguins,
+    stringr
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+VignetteBuilder: knitr
